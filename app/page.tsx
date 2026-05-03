@@ -99,7 +99,7 @@ export default function Home() {
         {/* Header */}
         <div className="bg-black text-white text-center py-4 px-4 border-b border-zinc-700">
           <img
-            src="/logo.svg"
+            src="/logo.png"
             alt="Logo SMK Yapan Indonesia"
             className="mx-auto mb-3 h-16 w-16"
           />
