@@ -101,7 +101,7 @@ export default function Home() {
           <img
             src="/logo.png"
             alt="Logo SMK Yapan Indonesia"
-            className="mx-auto mb-3 h-16 w-16"
+            className="mx-auto mb-3 h-16 w-auto"
           />
           <h1 className="font-bold text-lg">
             HASIL KELULUSAN SMK YAPAN INDONESIA
