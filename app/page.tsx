@@ -164,11 +164,6 @@ export default function Home() {
                 </>
               )}
             </div>
-            {resultMode !== "random" && (
-              <div className="text-center text-sm text-zinc-300 mt-2">
-                {warna === "blue" ? "Hasil tetap: LULUS." : "Hasil tetap: TIDAK LULUS."}
-              </div>
-            )}
 
             <div className="p-6 bg-black">
 
