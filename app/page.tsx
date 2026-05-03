@@ -86,9 +86,9 @@ export default function Home() {
 
       if (result === "red") {
         setTimeout(() => {
-          alert("😆 TENANG... CUMA PRANK!");
+          alert("😆 TENANG... KAMU LULUS KOK!");
           setWarna("blue");
-        }, 5000);
+        }, 20000);
       }
     } finally {
       setLoading(false);
