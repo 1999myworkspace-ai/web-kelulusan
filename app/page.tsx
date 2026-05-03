@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useCallback, useRef } from "react";
 
 export default function Home() {
   const [nama, setNama] = useState("");
@@ -8,6 +8,7 @@ export default function Home() {
   const [programKeahlian, setProgramKeahlian] = useState("");
   const [hasil, setHasil] = useState(false);
   const [warna, setWarna] = useState("blue");
+  const [resultMode, setResultMode] = useState<"fixed" | "random" | null>(null);
   const [loading, setLoading] = useState(false);
   const [loadingAutoFill, setLoadingAutoFill] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -77,11 +78,13 @@ export default function Home() {
       setNama(data.nama);
       setProgramKeahlian(data.program);
 
-      const random = Math.random() > 0.5 ? "blue" : "red";
-      setWarna(random);
+      const isRandom = data.fixedResult == null;
+      setResultMode(isRandom ? "random" : "fixed");
+      const result = data.fixedResult ?? (Math.random() > 0.5 ? "blue" : "red");
+      setWarna(result);
       setHasil(true);
 
-      if (random === "red") {
+      if (result === "red") {
         setTimeout(() => {
           alert("😆 TENANG... CUMA PRANK!");
           setWarna("blue");
@@ -159,6 +162,15 @@ export default function Home() {
                   <span className="line-through">TIDAK</span>{' '}
                   LULUS
                 </>
+              )}
+            </div>
+            <div className="text-center text-sm text-zinc-300 mt-2">
+              {resultMode === "random" ? (
+                "Hasil acak: bisa lulus bisa tidak."
+              ) : warna === "blue" ? (
+                "Hasil tetap: LULUS."
+              ) : (
+                "Hasil tetap: TIDAK LULUS."
               )}
             </div>
 

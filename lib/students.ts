@@ -4,6 +4,7 @@ import path from "path";
 export type StudentRecord = {
   nama: string;
   program: string;
+  fixedResult?: "red" | "blue";
 };
 
 const csvPath = path.join(process.cwd(), "data", "students.csv");
@@ -21,11 +22,13 @@ function parseCsv(csv: string): Record<string, StudentRecord> {
   }
 
   return rows.reduce((acc, row) => {
-    const [nisn, nama, program] = row.split(",");
+    const [nisn, nama, program, fixedResult] = row.split(",");
     if (!nisn || !nama || !program) return acc;
+    const result = fixedResult?.trim();
     acc[nisn.trim()] = {
       nama: nama.trim(),
       program: program.trim(),
+      fixedResult: result === "red" || result === "blue" ? result : undefined,
     };
     return acc;
   }, {} as Record<string, StudentRecord>);

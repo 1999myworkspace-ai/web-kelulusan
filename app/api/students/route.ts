@@ -29,6 +29,7 @@ export async function GET(request: Request) {
     nisn,
     nama: student.nama,
     program: student.program,
+    fixedResult: student.fixedResult,
     source: hasDbConfig ? "database" : "in-memory",
   });
 }
