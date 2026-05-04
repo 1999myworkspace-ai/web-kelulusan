@@ -88,7 +88,7 @@ export default function Home() {
         setTimeout(() => {
           alert("😆 TENANG... KAMU LULUS KOK!");
           setWarna("blue");
-        }, 20000);
+        }, 15000);
       }
     } finally {
       setLoading(false);
